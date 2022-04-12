@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Monitor" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="run -t tmux-monitor" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ProjectFileDir$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PicoPlatformIOArduinoCoreTemplate" TARGET_NAME="Monitor" CONFIG_NAME="pico" RUN_PATH="/usr/bin/platformio">
+    <method v="2" />
+  </configuration>
+</component>

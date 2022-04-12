@@ -1,15 +1,17 @@
 #include <Arduino.h>
 // You can import the full Pico SDK. Its installation is handled by PlatformIO :)
 #include <pico.h>
+#include "uwu.h"
+
+const int pin_uwu = PIN_LED;
 
 void setup() {
-    pinMode(PIN_LED, OUTPUT);
+    Serial.begin(115200);
+    pinMode(pin_uwu, OUTPUT);
 }
 
 void loop() {
+    Serial.println("uwu");
     // Toggle LED every 200ms
-    digitalWrite(PIN_LED, HIGH);
-    delay(200);
-    digitalWrite(PIN_LED, LOW);
-    delay(200);
+    uwu(pin_uwu);
 }
