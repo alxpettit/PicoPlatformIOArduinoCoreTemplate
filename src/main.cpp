@@ -1,6 +1,5 @@
 #include <Arduino.h>
-#include <Wire.h>
-#include <PCA9685.h>
+
 // You can import the full Pico SDK. Its installation is handled by PlatformIO :)
 #include <pico.h>
 #include "uwu.h"
