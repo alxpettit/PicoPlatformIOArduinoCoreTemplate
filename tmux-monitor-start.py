@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+# TODO: replace dumb sleep with better confirmation of available terminal
+# TODO: automatically start tmux session, if it hasn't been started
+# TODO: if tmux session isn't attached to in process list, automatically start terminal emulator
+
+# https://docs.platformio.org/en/latest//scripting/custom_targets.html#examples
 import os
 import shlex
 import sys
@@ -91,7 +96,7 @@ class ConnectSerialMonitorOnTmux:
             print('Sending Ctrl+C...')
             pane.cmd('send-keys', 'C-c')  # Ctrl+C to make sure console is clear
         time.sleep(0.01)
-        pane.send_keys(f'pio device monitor --echo --raw --port {self.port} --baud {self.baud}')
+        pane.send_keys(f'pio device monitor --raw --port {self.port} --baud {self.baud}')
 
     # noinspection PyBroadException
     def do_server_script(self) -> None:
