@@ -7,12 +7,12 @@
 
 const int pin_uwu = PIN_LED;
 
-void setup() {
+__attribute__((unused)) void setup() {
     Serial.begin(115200);
     pinMode(pin_uwu, OUTPUT);
 }
 
-void loop() {
+__attribute__((unused)) void loop() {
     Serial.println("uwu");
     // Toggle LED every 200ms
     uwu(pin_uwu);
