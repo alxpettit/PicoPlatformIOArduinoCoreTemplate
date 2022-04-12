@@ -90,7 +90,7 @@ class ConnectSerialMonitorOnTmux:
         for i in range(3):
             print('Sending Ctrl+C...')
             pane.cmd('send-keys', 'C-c')  # Ctrl+C to make sure console is clear
-        time.sleep(0.5)
+        time.sleep(0.01)
         pane.send_keys(f'pio device monitor --echo --raw --port {self.port} --baud {self.baud}')
 
     # noinspection PyBroadException
@@ -131,6 +131,24 @@ def main(*args, **kwargs):
 
     port = env.GetProjectOption("port")
     baud = env.GetProjectOption("monitor_speed")
+
+    is_path: bool = False
+    port_path = Path(port)
+    port_path_test = port_path
+    for i in range(3):
+        if port_path_test.exists():
+            is_path = True
+            break
+        port_path_test = port_path_test.parent
+
+    if is_path:
+        while True:
+            try:
+                port_path.open('r')
+                break
+            except FileNotFoundError:
+                time.sleep(0.1)
+
     # print('Reading platformio.ini...')
     # config = configparser.ConfigParser()
     # config.read('platformio.ini')
