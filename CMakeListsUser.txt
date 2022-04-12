@@ -1,0 +1,5 @@
+add_custom_target(
+        Monitor ALL
+        COMMAND platformio -c clion run -t tmux-monitor
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
